@@ -1,0 +1,228 @@
+Table TB_ASISTENCIA_WKF {
+    APOYO_MESATRABAJO boolean [null]
+    ASISTENCIA_ITX boolean [null]
+    DECORADO boolean [null]
+    DESCANSO boolean [null]
+    ESTATUS_TRANS varchar [not null, primary key]
+    FECHA_ASISTENCIA date [not null, primary key]
+    FECHA_CREACION date [null]
+    FECHA_MODIFICACION date [null]
+    ID_CVE_CARGO varchar [null]
+    ID_CVE_CARGO_APOYO varchar [null]
+    ID_CVE_CARGO_REAL varchar [null]
+    ID_CVE_EMPRESA varchar [null]
+    ID_EMPLEADO varchar [not null, primary key]
+    ID_MESA_DESTINO integer [null]
+    ID_MESA_ORIGINAL integer [null]
+    ID_MESA_REAL integer [null]
+    ID_SUCURSAL integer [not null, primary key]
+    PORCENTAJE_PARTICIPACION_EMPLEADO decimal [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_VACACINCAP_ITX_TMP {
+    ACCION varchar [null]
+    FECHA_FIN varchar [null]
+    FECHA_INICIO varchar [not null, primary key]
+    ID_COMPANIA varchar [not null]
+    ID_EMPLEADO varchar [not null, primary key]
+    ID_REGISTRO_ITX varchar [not null]
+    ID_SUCURSAL varchar [not null]
+    TIPO varchar [null]
+    TOTAL_DIAS varchar [null]
+}
+
+Table TB_VACACINCAP_ITX_HIS {
+    FECHA_CARGA date [null]
+    FECHA_FIN date [null]
+    FECHA_INICIO date [not null]
+    ID_COMPANIA integer [not null]
+    ID_EMPLEADO varchar [not null, primary key]
+    ID_REGISTRO_ITX integer [not null, primary key]
+    ID_SUCURSAL integer [not null]
+    TIPO varchar [not null, primary key]
+    TOTAL_DIAS integer [null]
+}
+
+Table TB_SUCURSAL_WKF {
+    FECHA_CREACION date [null]
+    FECHA_MODIFICACION date [null]
+    ID_CVE_EMPRESA varchar [not null, primary key]
+    ID_ESTADO varchar [null]
+    ID_SUCURSAL integer [not null, primary key]
+    ID_TIPO_MESA integer [null]
+    PAG_ORIGEN varchar [null]
+    PORC_PRIMA decimal [null]
+    SUCURSAL varchar [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_SUCURSAL_TMP {
+    ACCION varchar [null]
+    FECHA_CREACION varchar [null]
+    FECHA_MODIFICACION varchar [null]
+    ID_CVE_EMPRESA varchar [not null, primary key]
+    ID_ESTADO varchar [null]
+    ID_SUCURSAL varchar [not null, primary key]
+    ID_TIPO_MESA varchar [null]
+    PAG_ORIGEN varchar [null]
+    PORC_PRIMA varchar [null]
+    SUCURSAL varchar [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_SUCMESAEMPL_WKF {
+    DESCRIPCION varchar [null]
+    ESTATUS boolean [null]
+    FECHA_CREACION date [null]
+    FECHA_MODIFICACION date [null]
+    ID_CARGO varchar [null]
+    ID_CVE_EMPRESA varchar [null]
+    ID_EMPLEADO varchar [not null, primary key]
+    ID_MESA integer [null]
+    ID_SUCURSAL integer [not null, primary key]
+    ID_TIPO_MESA integer [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_SUCMESAEMPL_TMP {
+    ACCION varchar [null]
+    DESCRIPCION varchar [null]
+    ESTATUS varchar [null]
+    FECHA_CREACION varchar [null]
+    FECHA_MODIFICACION varchar [null]
+    ID_CARGO varchar [null]
+    ID_CVE_EMPRESA varchar [null]
+    ID_EMPLEADO varchar [not null, primary key]
+    ID_MESA varchar [null]
+    ID_SUCURSAL varchar [not null, primary key]
+    ID_TIPO_MESA varchar [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_SUCACT_PRD_TMP {
+    ACCION varchar [null]
+    BUSINESS_UNIT varchar [not null, primary key]
+    ESTATUS varchar [null]
+    FECHA_CREACION varchar [null]
+    ID_SUCURSAL varchar [not null, primary key]
+    USUARIO_CREACION varchar [null]
+}
+
+Table TB_SUCACT_PRD {
+    BUSINESS_UNIT varchar [not null, primary key]
+    ESTATUS boolean [null]
+    FECHA_CREACION date [null]
+    ID_SUCURSAL integer [not null, primary key]
+    USUARIO_CREACION varchar [null]
+}
+
+Table TB_PRODUCTOPRECIO_TMP {
+    DIM0HIGH varchar [null]
+    DIM0LOW varchar [not null, primary key]
+    DIM0NAME varchar [null]
+    DIM1HIGH varchar [null]
+    DIM1LOW varchar [not null, primary key]
+    DIM1NAME varchar [null]
+    EFFECTIVEENDDATE varchar [null]
+    EFFECTIVESTARTDATE varchar [not null, primary key]
+    MDLTNAME varchar [null]
+    UNITTYPEFORVALUE varchar [null]
+    VALUE varchar [not null]
+}
+
+Table TB_PRODUCTOPRECIO_HIS {
+    FECHA_CARGA date [null]
+    FECHA_FIN date [null]
+    FECHA_INICIO date [not null, primary key]
+    FECHA_MODIFICACION date [null]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+    MONEDA varchar [null]
+    PRECIO decimal [not null]
+}
+
+Table TB_PRODUCTOPRECIO_AUXTMP {
+    FECHA_FIN date [null]
+    FECHA_INICIO date [not null, primary key]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+    MONEDA varchar [null]
+    PRECIO decimal [not null]
+    ROW_NUM bigint [null]
+}
+
+Table TB_PRODUCTOPRECIOUPDATE_TMP {
+    FECHA_FIN date [null]
+    FECHA_INICIO date [not null, primary key]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+    MONEDA varchar [null]
+    PRECIO decimal [not null]
+}
+
+Table TB_PRODUCTOPRECIOINSERT_TMP {
+    FECHA_FIN date [null]
+    FECHA_INICIO date [not null, primary key]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+    MONEDA varchar [null]
+    PRECIO decimal [not null]
+}
+
+Table TB_PRODUCTOFACT_TMP {
+    ACCION varchar [null]
+    FACTOR varchar [null]
+    FECHA_FIN_VIGENCIA varchar [null]
+    FECHA_INICIO_VIGENCIA varchar [not null, primary key]
+    ID_MESA varchar [not null, primary key]
+    ID_PRODUCTO varchar [not null, primary key]
+    ID_SUCURSAL varchar [not null, primary key]
+}
+
+Table TB_PRODUCTOFACT_HIS {
+    FACTOR decimal [null]
+    FECHA_CARGA date [null]
+    FECHA_FIN_VIGENCIA date [null]
+    FECHA_INICIO_VIGENCIA date [not null, primary key]
+    FECHA_MODIFICACION date [null]
+    ID_MESA integer [not null, primary key]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+}
+
+Table TB_PRODUCTOFACT_AUXTMP {
+    FACTOR decimal [null]
+    FECHA_FIN_VIGENCIA date [null]
+    FECHA_INICIO_VIGENCIA date [not null, primary key]
+    ID_MESA integer [not null, primary key]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+    ROW_NUM bigint [null]
+}
+
+Table TB_PRODUCCIONDIARIA_WKF {
+    ESTATUS boolean [null]
+    FECHA_CREACION timestamp [null]
+    FECHA_MODIFICACION timestamp [null]
+    ID_CVE_CODIGO varchar [not null, primary key]
+    ID_CVE_EMPRESA varchar [null]
+    ID_FEC_PRODUCCION date [not null, primary key]
+    ID_NUM_MESATRABAJO integer [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+    INVENTARIO_FINAL_FISICO decimal [null]
+    INVENTARIO_INICIAL decimal [null]
+    MERMA_CONTROLADA decimal [null]
+    ORDEN_INICIAL decimal [null]
+    UNIDADES_PRODUCIDAS decimal [null]
+    UNIDADES_VENDIDAS decimal [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+    VENTA_PROYECTADA decimal [null]
+}
+
