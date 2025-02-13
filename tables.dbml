@@ -226,3 +226,369 @@ Table TB_PRODUCCIONDIARIA_WKF {
     VENTA_PROYECTADA decimal [null]
 }
 
+Table TB_PRODFACTUPDATE_TMP {
+    FACTOR decimal [null]
+    FECHA_FIN_VIGENCIA date [null]
+    FECHA_INICIO_VIGENCIA date [not null, primary key]
+    ID_MESA integer [not null, primary key]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+}
+
+Table TB_PRODFACTINSERT_TMP {
+    FACTOR decimal [null]
+    FECHA_FIN_VIGENCIA date [null]
+    FECHA_INICIO_VIGENCIA date [not null, primary key]
+    ID_MESA integer [not null, primary key]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+}
+
+Table TB_PORCPARTICIPACION_WKF {
+    ESTATUS boolean [null]
+    FECHA_CREACION date [null]
+    FECHA_FIN date [null]
+    FECHA_INICIO date [not null, primary key]
+    FECHA_MODIFICACION date [null]
+    ID_CVE_CARGO varchar [not null, primary key]
+    ID_CVE_EMPRESA varchar [null]
+    ID_MESA integer [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+    PORCENTAJE_PART_CARGO decimal [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_PORCPARTICIPACION_TMP {
+    ACCION varchar [null]
+    ESTATUS varchar [null]
+    FECHA_CREACION varchar [null]
+    FECHA_FIN varchar [null]
+    FECHA_INICIO varchar [not null, primary key]
+    FECHA_MODIFICACION varchar [null]
+    ID_CVE_CARGO varchar [not null, primary key]
+    ID_CVE_EMPRESA varchar [null]
+    ID_MESA varchar [not null, primary key]
+    ID_SUCURSAL varchar [not null, primary key]
+    PORCENTAJE_PART_CARGO varchar [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_MESA_WKF {
+    FECHA_CREACION date [null]
+    FECHA_MODIFICACION date [null]
+    ID_MESA integer [not null, primary key]
+    ID_TIPO_MESA integer [null]
+    MESA varchar [null]
+    TIPO_MESA varchar [null]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_MESAPRODUCTO_WKF {
+    ESTATUS boolean [null]
+    FECHA_CREACION date [null]
+    FECHA_MODIFICACION date [null]
+    ID_MESA integer [not null, primary key]
+    ID_PRODUCTO bigint [not null, primary key]
+    ID_SUCURSAL integer [not null, primary key]
+    ID_TIPO_MESA integer [not null, primary key]
+    USUARIO_CREACION varchar [null]
+    USUARIO_MODIFICACION varchar [null]
+}
+
+Table TB_INCIDENCIA_TMP {
+    ESTADO varchar [null]
+    FECHA_ENVIO varchar [null]
+    FECHA_MOVIMIENTO varchar [null]
+    FIJO varchar [null]
+    ID_CONCEPTO varchar [null]
+    ID_EMPLEDO varchar [null]
+    ID_MESA varchar [null]
+    ID_SUCURSAL varchar [null]
+    ID_TRANSACCION varchar [null]
+    IMPORTE varchar [null]
+    LOTE varchar [null]
+    PARAMDATE2 varchar [null]
+    PARAMNUM2 varchar [null]
+    PARAMNUM3 varchar [null]
+    PARAMSTR3 varchar [null]
+    PARAMSTR4 varchar [null]
+    PERIODO varchar [null]
+    REFERENCIA varchar [null]
+}
+
+Table TB_INCIDENCIA_ITX {
+    CORREO VARCHAR [null]
+    FIJO VARCHAR [null]
+    FILENAME VARCHAR [null]
+    ID_CONCEPTO VARCHAR [null]
+    ID_EMPLEADO VARCHAR [null]
+    ID_TRANSACCION VARCHAR [null]
+    PARAMDATE1 VARCHAR [null]
+    PARAMDATE2 VARCHAR [null]
+    PARAMNUM1 VARCHAR [null]
+    PARAMNUM2 VARCHAR [null]
+    PARAMNUM3 VARCHAR [null]
+    PARAMSTR1 VARCHAR [null]
+    PARAMSTR2 VARCHAR [null]
+    PARAMSTR3 VARCHAR [null]
+    PARAMSTR4 VARCHAR [null]
+    TOTAL_REGISTROS VARCHAR [null]
+}
+
+Table TB_INCIDENCIA_HIS {
+    ESTADO VARCHAR [null]
+    FECHA_ENVIO VARCHAR [null]
+    FECHA_MOVIMIENTO TIMESTAMP [null]
+    FIJO VARCHAR [null]
+    ID_CONCEPTO VARCHAR [not null]
+    ID_EMPLEADO VARCHAR [not null]
+    ID_MESA VARCHAR [not null]
+    ID_SUCURSAL VARCHAR [not null]
+    ID_TRANSACCION BIGINT [null]
+    IMPORTE VARCHAR [null]
+    LOTE VARCHAR [null]
+    PARAMDATE2 VARCHAR [null]
+    PARAMNUM2 VARCHAR [null]
+    PARAMNUM3 VARCHAR [null]
+    PARAMSTR3 VARCHAR [null]
+    PARAMSTR4 VARCHAR [null]
+    PERIODO VARCHAR [not null]
+    REFERENCIA VARCHAR [null]
+}
+
+Table TB_INCIDENCIA_AUX {
+    FECHA_ENVIO VARCHAR [null]
+    FIJO VARCHAR [null]
+    ID_CONCEPTO VARCHAR [not null]
+    ID_EMPLEADO VARCHAR [not null]
+    ID_MESA VARCHAR [not null]
+    ID_SUCURSAL VARCHAR [not null]
+    ID_TRANSACCION BIGINT [not null]
+    IMPORTE DECIMAL [null]
+    LOTE VARCHAR [null]
+    PARAMDATE2 VARCHAR [null]
+    PARAMNUM2 DECIMAL [null]
+    PARAMNUM3 VARCHAR [null]
+    PARAMSTR3 VARCHAR [null]
+    PARAMSTR4 VARCHAR [null]
+    PERIODO VARCHAR [not null]
+    REFERENCIA VARCHAR [null]
+}
+
+Table TB_IDTRANSACCION_ITX {
+    FILENAME VARCHAR [null]
+    ID_TRANSACCION BIGINT [not null, primary key]
+}
+
+Table TB_FACTORPRODUCTO_TMP {
+    FACTOR VARCHAR [null]
+    FECHA_CARGA VARCHAR [null]
+    FECHA_FIN_VIGENCIA VARCHAR [null]
+    FECHA_INICIO_VIGENCIA VARCHAR [null]
+    FECHA_MODIFICACION VARCHAR [null]
+    ID_MESA VARCHAR [null]
+    ID_PRODUCTO VARCHAR [null]
+    ID_SUCURSAL VARCHAR [null]
+}
+
+Table TB_EVENTO_WKF {
+    DESC_EVENTO VARCHAR [null]
+    ESTATUS BOOLEAN [null]
+    FECHA_CREACION DATE [null]
+    FECHA_MODIFICACION DATE [null]
+    FEC_FIN_PRODUCCION DATE [null]
+    FEC_FIN_VENTA DATE [null]
+    FEC_INI_PRODUCCION DATE [not null, primary key]
+    FEC_INI_VENTA DATE [null]
+    ID_CVE_CODIGO VARCHAR [not null, primary key]
+    ID_CVE_EMPRESA VARCHAR [not null, primary key]
+    ID_NUM_EVENTO INTEGER [not null, primary key]
+    ID_SUCURSAL INTEGER [not null, primary key]
+    USUARIO_CREACION VARCHAR [null]
+    USUARIO_MODIFICACION VARCHAR [null]
+}
+
+Table TB_EVENTO_ADMIN {
+    DESCRIPCION VARCHAR [null]
+    FECHA DATE [null]
+    FECHA_EJECUCION TIMESTAMP [null]
+}
+
+Table TB_EVENTOSUC_TMP {
+    ID_SUCURSAL INTEGER [not null, primary key]
+}
+
+Table TB_EVENTOCOD_TMP {
+    ID_CODIGO VARCHAR [not null, primary key]
+}
+
+Table TB_ERRORLOG_TMP {
+    DESCRIPCION VARCHAR [null]
+    LLAVE1 VARCHAR [null]
+    LLAVE2 VARCHAR [null]
+    LLAVE3 VARCHAR [null]
+    LLAVE4 VARCHAR [null]
+    LLAVE5 VARCHAR [null]
+    TABLA VARCHAR [null]
+    TIPO VARCHAR [null]
+}
+
+Table TB_DIAFESTIVO_WKF {
+    FECHA_CREACION DATE [null]
+    FECHA_MODIFICACION DATE [null]
+    ID_CVE_EMPRESA VARCHAR [not null, primary key]
+    ID_ESTADO INTEGER [not null, primary key]
+    ID_FEC_DIAFESTIVO DATE [not null, primary key]
+    ID_SUCURSAL INTEGER [not null, primary key]
+    USUARIO_CREACION VARCHAR [null]
+    USUARIO_MODIFICACION VARCHAR [null]
+    VAL BOOLEAN [null]
+}
+
+Table TB_DESCANSO_WKF {
+    FECHA_CREACION DATE [null]
+    ID_CVE_CARGO VARCHAR [null]
+    ID_CVE_EMPRESA VARCHAR [null]
+    ID_FEC_DESCANSO DATE [not null, primary key]
+    ID_NUM_EMPL INTEGER [not null, primary key]
+    ID_NUM_MESATRABAJO INTEGER [null]
+    ID_SUCURSAL INTEGER [not null, primary key]
+    USUARIO_CREACION VARCHAR [null]
+}
+
+Table TB_DATOS_TXN {
+    ACUMULADO_PRODUCIDAS DECIMAL [null]
+    ACUMULADO_VENDIDAS DECIMAL [null]
+    ACUM_PROD_DIARIAS DECIMAL [null]
+    COMPENSATION DATE [null]
+    FACTOR DECIMAL [null]
+    FECHA_FIN_EVENTO DATE [null]
+    FECHA_INI_EVENTO DATE [null]
+    FECHA_PRODUCCION DATE [null]
+    ID_MESA INTEGER [null]
+    ID_PRODUCTO VARCHAR [null]
+    ID_SUCURSAL INTEGER [null]
+    PRODUCTNAME VARCHAR [null]
+    UNIDADES_PRODUCIDAS DECIMAL [null]
+    UNIDADES_VENDIDAS DECIMAL [null]
+}
+
+Table TB_DATOS_EVENTO {
+    ACUMULADO_PRODUCIDAS DECIMAL [null]
+    ACUMULADO_VENDIDAS DECIMAL [null]
+    ACUM_PROD_DIARIAS DECIMAL [null]
+    COMPENSATION DATE [null]
+    FACTOR DECIMAL [null]
+    FECHA_FIN_EVENTO DATE [null]
+    FECHA_INI_EVENTO DATE [null]
+    FECHA_PRODUCCION DATE [null]
+    ID_MESA INTEGER [null]
+    ID_PRODUCTO VARCHAR [null]
+    ID_SUCURSAL INTEGER [null]
+    PRODUCTNAME VARCHAR [null]
+    UNIDADES_PRODUCIDAS DECIMAL [null]
+    UNIDADES_VENDIDAS DECIMAL [null]
+}
+
+Table TB_CONTROLPRODUCCION_WKF {
+    ESTATUS VARCHAR [null]
+    FECHA_CREACION TIMESTAMP [null]
+    FECHA_MODIFICACION TIMESTAMP [null]
+    FECHA_PRODUCCION DATE [not null, primary key]
+    ID_EMPRESA VARCHAR [not null, primary key]
+    ID_MESA INTEGER [not null, primary key]
+    ID_SUCURSAL INTEGER [not null, primary key]
+    USUARIO_CREACION VARCHAR [null]
+    USUARIO_MODIFICACION VARCHAR [null]
+}
+
+Table TB_COMPANIA_WKF {
+    EMPRESA VARCHAR [null]
+    FECHA_CREACION DATE [null]
+    FECHA_MODIFICACION DATE [null]
+    ID_CVE_EMPRESA VARCHAR [not null, primary key]
+    USUARIO_CREACION VARCHAR [null]
+    USUARIO_MODIFICACION VARCHAR [null]
+}
+
+Table TB_CASOS_ABIERTOS_WKF {
+    FECHA_CREACION VARCHAR [null]
+    NOMBRE_CASO VARCHAR [null]
+    USUARIO VARCHAR [null]
+}
+
+Table TB_CARGOS_WKF {
+    DESC_CARGO VARCHAR [null]
+    DESC_TMESA VARCHAR [null]
+    FECHA_CREACION DATE [null]
+    FECHA_MODIFICACION DATE [null]
+    ID_CARGO VARCHAR [not null, primary key]
+    ID_MESA INTEGER [not null, primary key]
+    ID_TIPO_MESA INTEGER [null]
+    USUARIO_CREACION VARCHAR [null]
+    USUARIO_MODIFICACION VARCHAR [null]
+}
+
+Table TB_CANCINC_ITX_NEW {
+    CONCEPTO VARCHAR [null]
+    ID_EMPLEADO VARCHAR [null]
+    ID_TRANSACCION VARCHAR [null]
+    NOM_ARCHIVO VARCHAR [null]
+    ORIGEN VARCHAR [null]
+    PARAMDATE1 VARCHAR [null]
+    PARAMSTR1 VARCHAR [null]
+    TOTAL_REGISTROS VARCHAR [null]
+    USUARIO VARCHAR [null]
+}
+
+Table TB_CANCINC_AUX_NEW {
+    CONCEPTO VARCHAR [null]
+    ID_EMPLEADO VARCHAR [null]
+    ID_TRANSACCION VARCHAR [null]
+    PARAMDATE1 VARCHAR [null]
+    PARAMSTR1 VARCHAR [null]
+}
+
+Table TB_ASISTENCIA_ITX_TMP {
+    ACCION VARCHAR [null]
+    FECHA_LECTURA VARCHAR [not null, primary key]
+    ID_EMPLEADO VARCHAR [not null, primary key]
+    ID_SUCURSAL VARCHAR [not null, primary key]
+    TIPO_LECTURA VARCHAR [not null, primary key]
+    TURNO VARCHAR [not null]
+}
+
+Table TB_ASISTENCIA_ITX_HIS {
+    FECHA_CARGA DATE [null]
+    FECHA_LECTURA DATE [not null, primary key]
+    ID_EMPLEADO VARCHAR [not null, primary key]
+    ID_SUCURSAL INTEGER [not null, primary key]
+    TIPO_LECTURA VARCHAR [not null, primary key]
+    TURNO VARCHAR [not null]
+}
+
+Table TB_ASISTENCIA_EVENTO_WKF {
+    APOYO_MESATRABAJO BOOLEAN [null]
+    ASISTENCIA_ITX BOOLEAN [null]
+    DECORADO BOOLEAN [null]
+    DESCANSO BOOLEAN [null]
+    ESTATUS_TRANS VARCHAR [not null, primary key]
+    FECHA_ASISTENCIA DATE [not null, primary key]
+    FECHA_CREACION DATE [null]
+    FECHA_MODIFICACION DATE [null]
+    ID_CVE_CARGO VARCHAR [null]
+    ID_CVE_CARGO_APOYO VARCHAR [null]
+    ID_CVE_CARGO_REAL VARCHAR [null]
+    ID_CVE_EMPRESA VARCHAR [null]
+    ID_EMPLEADO VARCHAR [not null, primary key]
+    ID_MESA_DESTINO INTEGER [null]
+    ID_MESA_ORIGINAL INTEGER [null]
+    ID_MESA_REAL INTEGER [null]
+    ID_SUCURSAL INTEGER [not null, primary key]
+    PORCENTAJE_PARTICIPACION_EMPLEADO DECIMAL [null]
+    USUARIO_CREACION VARCHAR [null]
+    USUARIO_MODIFICACION VARCHAR [null]
+}
